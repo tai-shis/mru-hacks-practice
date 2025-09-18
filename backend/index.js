@@ -3,6 +3,9 @@ import bcrypt from 'bcrypt';
 import express from 'express';
 import cors from 'cors';
 
+// User Schema
+import { User, saveUser } from './models/User.js';
+
 // Middleware Junk
 const app = express();
 const corsOptions = {
@@ -23,7 +26,7 @@ app.post('/signup', async (req, res) => {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(plaintext, salt);    
 
-        const newUser = await db.saveUser(userName, email, salt, hash);
+        const newUser = await saveUser(userName, email, salt, hash);
 
         res.status(201).json({ message: 'User created successfully', user: newUser  });
     } catch(error) {

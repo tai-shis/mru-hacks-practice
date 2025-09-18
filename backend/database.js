@@ -11,28 +11,3 @@ export async function connectDB() {
 	console.log(err);
     }
 };
-
-export async function saveUser(userName, email, salt, hash) {
-    const userSchema = new mongoose.Schema ({
-	userName: {
-            type: String,
-            unique: true,
-	},
-	email: {
-            type: String,
-            unique: true,
-	},
-	salt: {
-            type: String
-	},
-	hash: {
-            type: String
-	}
-    });
-
-    // Initialize User object for mongoose
-    const User = mongoose.model('User', userSchema);
-    // Create new user from parameters and save to batabase.
-    const user = new User({userName, email, salt, hash});
-    await user.save();
-};
