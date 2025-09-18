@@ -12,8 +12,7 @@ export async function connectDB() {
     }
 };
 
-export function initUser() {
-    // Create structure of user object
+export async function saveUser(userName, email, salt, hash) {
     const userSchema = new mongoose.Schema ({
 	userName: {
             type: String,
@@ -33,9 +32,6 @@ export function initUser() {
 
     // Initialize User object for mongoose
     const User = mongoose.model('User', userSchema);
-};
-
-export async function saveUser(userName, email, salt, hash) {
     // Create new user from parameters and save to batabase.
     const user = new User({userName, email, salt, hash});
     await user.save();

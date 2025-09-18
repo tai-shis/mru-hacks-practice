@@ -14,14 +14,13 @@ app.use(express.json());
 
 // Connect to DB and initialize user object
 db.connectDB();
-db.initUser();
 
 // Now handle get/post requests and such.
 app.post('/signup', async (req, res) => {
     try {
         console.log('post request recieved')
         const {userName, email, plaintext} = req.body; 
-        const salt = bcrypt.genSaltSync(saltRounds);
+        const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(plaintext, salt);    
 
         const newUser = await db.saveUser(userName, email, salt, hash);
