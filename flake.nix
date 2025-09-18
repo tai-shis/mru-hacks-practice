@@ -19,6 +19,9 @@
 	  packages = [
 	    pkgs.nodejs_20
 	    pkgs.yarn
+	    pkgs.mongodb-atlas-cli
+	    pkgs.mongodb-tools
+	    pkgs.mongosh
 	  ];
 	};
       }
