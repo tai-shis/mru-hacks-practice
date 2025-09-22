@@ -5,9 +5,9 @@ export async function connectDB() {
 	// Connect to DB at MONGODB_URI (from .env)
 	const uri = process.env.MONGODB_URI;
 	await mongoose.connect(uri);
-	console.log('Successfully connected to Database');
+		console.log('Successfully connected to Database');
     } catch(err) {
-	console.log('Error when connecting to Database');
-	console.log(err);
+		console.log('Error when connecting to Database');
+		console.log(err);
     }
 };

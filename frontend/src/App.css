@@ -1,42 +1,69 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import 'tailwindcss'; 
+
+/* Removing default browser css */
+h1, div, p {
+    margin: 0;
+    padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+    background-color: var(--color-background);
+    /* overflow: hidden scroll; */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Essentially custom global variables */
+@theme {
+    --color-default: #FFFFFF;
+    --color-background: #04151f;
+    --color-element: #183a37;
+    --color-test: #EFD6AC
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+/* Essentially normal classes*/
+/* Lowkey, I hate tailwind */
+@layer components {
+    .header {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
 
-.card {
-  padding: 2em;
-}
+    .navElement {
+        padding: 1.5rem;
+        margin: 1.5rem;
+        color: var(--color-default);
+        background-color: var(--color-element);
+        border: 1pt solid var(--color-element);
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.75)
+    }
 
-.read-the-docs {
-  color: #888;
+    .signUp {
+        color: var(--color-default);
+        background-color: var(--color-element);
+        width: fit-content;
+        margin: auto;
+        padding: 1.5rem;
+        border: 1pt solid var(--color-element);
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.75)
+    }
+
+    .signUp label {
+        font-weight: bold;
+    }
+
+    .signUp input {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        color: black;
+        background-color: var(--color-test);
+        border: 1pt solid var(--color-test);
+        border-radius: 10px;
+        cursor: auto;
+    }
+
+    #submit {
+        margin-bottom: 0;
+        justify-content: center;
+    }
 }
